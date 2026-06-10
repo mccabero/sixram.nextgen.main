@@ -19,15 +19,15 @@ export function PageHero({
   secondaryLabel?: string;
 }) {
   return (
-    <section className="relative isolate overflow-hidden border-b border-white/10 bg-brand-radial pt-32">
-      <div className="absolute inset-0 -z-10 bg-grid-lines bg-[length:54px_54px] opacity-30" />
+    <section className="relative isolate overflow-hidden border-b border-slate-200/80 bg-brand-radial pt-32">
+      <div className="absolute inset-0 -z-10 bg-grid-lines bg-[length:54px_54px] opacity-45" />
       <div className="container pb-20 pt-8">
         <div className="max-w-4xl">
           <Badge>{eyebrow}</Badge>
-          <h1 className="mt-6 text-balance text-4xl font-black tracking-normal text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 text-balance text-4xl font-black tracking-normal text-slate-950 sm:text-5xl lg:text-6xl">
             {title}
           </h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600 sm:text-xl">
             {description}
           </p>
           {primaryHref && primaryLabel ? (

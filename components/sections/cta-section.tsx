@@ -19,7 +19,7 @@ export function CtaSection({
   return (
     <section className="section-y">
       <div className="container">
-        <div className="glass-panel overflow-hidden rounded-2xl p-8 sm:p-10 lg:p-12">
+        <div className="premium-panel relative overflow-hidden rounded-2xl p-8 sm:p-10 lg:p-12">
           <div className="relative z-10 grid gap-8 lg:grid-cols-[1.4fr_auto] lg:items-center">
             <div>
               <p className="text-sm font-semibold uppercase text-amber-200">
@@ -33,12 +33,17 @@ export function CtaSection({
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <ButtonLink href={primaryHref} size="lg">
+              <ButtonLink href={primaryHref} size="lg" variant="gold">
                 {primaryLabel}
                 <ArrowRight aria-hidden="true" size={18} />
               </ButtonLink>
               {secondaryHref && secondaryLabel ? (
-                <ButtonLink href={secondaryHref} size="lg" variant="secondary">
+                <ButtonLink
+                  className="border-white/15 bg-white/10 text-white shadow-none hover:bg-white/15"
+                  href={secondaryHref}
+                  size="lg"
+                  variant="secondary"
+                >
                   {secondaryLabel}
                 </ButtonLink>
               ) : null}

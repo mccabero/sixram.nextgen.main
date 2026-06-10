@@ -7,22 +7,21 @@ import { SectionHeading } from "@/components/sections/section-heading";
 const inquiryTypes = [
   "Software Development Inquiry",
   "Band Studio Booking",
-  "Business Partnership",
-  "Wellness Spa Inquiry",
+  "Automation or Business Systems",
   "General Inquiry"
 ];
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Sixram for software development inquiries, band studio bookings, business partnerships, wellness spa inquiries, and general messages."
+    "Contact Sixram for software development inquiries, band studio bookings, automation, business systems, and general messages."
 };
 
 export default function ContactPage() {
   return (
     <>
       <PageHero
-        description="Send an inquiry for software development, automation, business systems, studio bookings, partnerships, wellness spa messages, or general Sixram conversations."
+        description="Send an inquiry for software development, automation, business systems, studio bookings, or general Sixram conversations."
         eyebrow="Contact Sixram"
         title="Start the conversation with the right context."
       />
@@ -39,7 +38,7 @@ export default function ContactPage() {
               <div className="mt-8 grid gap-3">
                 {inquiryTypes.map((type) => (
                   <div className="glass-panel rounded-xl p-4" key={type}>
-                    <p className="text-sm font-semibold text-slate-100">{type}</p>
+                    <p className="text-sm font-semibold text-slate-700">{type}</p>
                   </div>
                 ))}
               </div>
@@ -53,9 +52,9 @@ export default function ContactPage() {
         description="The initial contact form uses client-side validation. Email, CRM, or CMS-backed submission can be connected in a future release."
         primaryHref="/technologies"
         primaryLabel="Review technology services"
-        secondaryHref="/projects"
-        secondaryLabel="Browse projects"
-        title="Sixram is ready for software, studio, partnership, and venture inquiries."
+        secondaryHref="/studio"
+        secondaryLabel="Explore the studio"
+        title="Sixram is ready for software and studio inquiries."
       />
     </>
   );

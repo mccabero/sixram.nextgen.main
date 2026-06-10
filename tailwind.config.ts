@@ -21,26 +21,26 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          ink: "#030712",
-          panel: "#071018",
-          panel2: "#0a1520",
-          line: "rgba(148, 163, 184, 0.18)",
-          blue: "#38bdf8",
-          cyan: "#22d3ee",
-          violet: "#a78bfa",
-          gold: "#f5c542",
-          mint: "#34d399"
+          ink: "#0f172a",
+          panel: "#ffffff",
+          panel2: "#f7fbff",
+          line: "rgba(15, 23, 42, 0.12)",
+          blue: "#2563eb",
+          cyan: "#0891b2",
+          violet: "#5b5bd6",
+          gold: "#b7791f",
+          mint: "#047857"
         }
       },
       boxShadow: {
-        glow: "0 0 45px rgba(56, 189, 248, 0.14)",
-        "gold-glow": "0 0 34px rgba(245, 197, 66, 0.12)"
+        glow: "0 18px 45px rgba(37, 99, 235, 0.14)",
+        "gold-glow": "0 18px 36px rgba(180, 83, 9, 0.12)"
       },
       backgroundImage: {
         "grid-lines":
-          "linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px)",
+          "linear-gradient(rgba(37, 99, 235, 0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, 0.09) 1px, transparent 1px)",
         "brand-radial":
-          "radial-gradient(circle at 18% 12%, rgba(34, 211, 238, 0.16), transparent 30%), radial-gradient(circle at 78% 2%, rgba(167, 139, 250, 0.12), transparent 30%), radial-gradient(circle at 55% 92%, rgba(245, 197, 66, 0.08), transparent 32%)"
+          "linear-gradient(135deg, rgba(248, 252, 255, 0.96), rgba(237, 245, 255, 0.9) 48%, rgba(255, 255, 255, 0.98))"
       }
     }
   },

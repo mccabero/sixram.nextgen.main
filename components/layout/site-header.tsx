@@ -12,15 +12,15 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/72 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/80 shadow-sm backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
         <Link className="group flex items-center gap-3" href="/" aria-label="Sixram home">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-cyan-200/20 bg-cyan-200/10 text-sm font-black text-cyan-100 shadow-glow">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-cyan-700/15 bg-cyan-50 text-sm font-black text-cyan-800 shadow-sm">
             SX
           </span>
           <span className="leading-none">
-            <span className="block text-sm font-bold text-white">Sixram</span>
-            <span className="block text-[11px] font-medium uppercase text-slate-400">
+            <span className="block text-sm font-bold text-slate-950">Sixram</span>
+            <span className="block text-[11px] font-medium uppercase text-slate-500">
               NextGen
             </span>
           </span>
@@ -34,8 +34,8 @@ export function SiteHeader() {
             return (
               <Link
                 className={cn(
-                  "rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/8 hover:text-white",
-                  active && "bg-cyan-300/10 text-cyan-100"
+                  "rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950",
+                  active && "bg-cyan-50 text-cyan-800"
                 )}
                 href={item.href}
                 key={item.href}

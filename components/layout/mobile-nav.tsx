@@ -18,7 +18,7 @@ export function MobileNav() {
         aria-controls="mobile-navigation"
         aria-expanded={open}
         aria-label={open ? "Close navigation" : "Open navigation"}
-        className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/8 text-slate-100 transition hover:bg-white/12"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-800 shadow-sm transition hover:bg-slate-50"
         onClick={() => setOpen((current) => !current)}
         type="button"
       >
@@ -38,8 +38,8 @@ export function MobileNav() {
               return (
                 <Link
                   className={cn(
-                    "rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/8 hover:text-white",
-                    active && "bg-cyan-300/10 text-cyan-100"
+                    "rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950",
+                    active && "bg-cyan-50 text-cyan-800"
                   )}
                   href={item.href}
                   key={item.href}

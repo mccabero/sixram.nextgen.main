@@ -1,22 +1,52 @@
 import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 import { ProjectCard } from "@/components/cards/project-card";
 import { ServiceCard } from "@/components/cards/service-card";
-import { VentureCard } from "@/components/cards/venture-card";
 import { CtaSection } from "@/components/sections/cta-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { projects } from "@/data/projects";
-import { technologyServices, whyWorkWithSixram } from "@/data/services";
-import { ventures } from "@/data/ventures";
+import { studioServices, technologyServices, whyWorkWithSixram } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Sixram Technologies & Ventures",
+  title: "Sixram Technologies & Studio",
   description:
-    "Sixram is the official brand hub for Marxis Cabero, Sixram Technologies, software development services, automation, studio services, projects, and ventures."
+    "Sixram is the official brand hub for Marxis Cabero, Sixram Technologies, software development services, automation, and studio services."
 };
+
+const aboutSignals = [
+  ["Main focus", "Sixram Technologies"],
+  ["Creative side", "Sixram Band Studio"],
+  ["Build style", "Business-first systems"]
+];
+
+const processHighlights = [
+  {
+    title: "Clarify the business problem",
+    description:
+      "Start with users, daily workflows, constraints, and the outcome the system needs to support."
+  },
+  {
+    title: "Shape the practical solution",
+    description:
+      "Turn the goal into pages, data, integrations, automation points, and release-ready milestones."
+  },
+  {
+    title: "Build, validate, and improve",
+    description:
+      "Ship focused increments, test the important paths, and refine the product with real use."
+  }
+];
+
+const homeMetrics = [
+  ["8", "Technology service areas"],
+  ["7", "Delivery phases"],
+  ["6", "Studio support options"],
+  ["1", "Unified Sixram brand hub"]
+];
 
 export default function HomePage() {
   return (
@@ -25,31 +55,50 @@ export default function HomePage() {
 
       <section className="section-y" id="about-sixram">
         <div className="container">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
             <Reveal>
               <SectionHeading
-                description="Sixram is a growing technology and business brand led by Marxis Cabero, connecting software development, automation, creative spaces, and selected local ventures under one clear identity."
+                description="Sixram is a growing technology and studio brand led by Marxis Cabero, connecting software development, automation, and creative studio services under one clear identity."
                 eyebrow="About Sixram"
                 title="A practical brand for digital systems and real business operations."
               />
+              <div className="mt-8 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+                {aboutSignals.map(([label, value]) => (
+                  <div className="glass-panel rounded-xl p-5" key={label}>
+                    <p className="text-sm font-semibold text-cyan-800">{label}</p>
+                    <p className="mt-3 text-xl font-bold text-slate-950">{value}</p>
+                  </div>
+                ))}
+              </div>
             </Reveal>
-            <Reveal className="grid gap-4 sm:grid-cols-3" delay={0.08}>
-              {[
-                ["Main focus", "Sixram Technologies"],
-                ["Build style", "Business-first systems"],
-                ["Venture mix", "Software, studio, local brands"]
-              ].map(([label, value]) => (
-                <div className="glass-panel rounded-xl p-5" key={label}>
-                  <p className="text-sm font-semibold text-cyan-100">{label}</p>
-                  <p className="mt-3 text-2xl font-bold text-white">{value}</p>
-                </div>
-              ))}
+            <Reveal className="glass-panel rounded-2xl p-6 sm:p-8" delay={0.08}>
+              <p className="text-sm font-semibold uppercase text-amber-700">
+                How the work moves
+              </p>
+              <div className="mt-6 grid gap-5">
+                {processHighlights.map((item, index) => (
+                  <div
+                    className="grid gap-4 rounded-xl border border-slate-200 bg-white/70 p-5 sm:grid-cols-[auto_1fr]"
+                    key={item.title}
+                  >
+                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-950 text-sm font-bold text-white">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-950">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-slate-600">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="section-y border-y border-white/10 bg-slate-950/45">
+      <section className="section-y border-y border-slate-200/80 bg-slate-50/80">
         <div className="container">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
@@ -72,42 +121,93 @@ export default function HomePage() {
 
       <section className="section-y">
         <div className="container">
-          <SectionHeading
-            align="center"
-            description="A connected ecosystem of technology, creative studio services, future retail plans, and local business partnerships."
-            eyebrow="Ventures"
-            title="The Sixram brand is built around multiple focused ventures."
-          />
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {ventures.map((venture) => (
-              <VentureCard key={venture.name} {...venture} />
-            ))}
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <SectionHeading
+              description="Sixram connects planning, implementation, automation, and studio work into a clear path for practical digital projects."
+              eyebrow="Sixram Snapshot"
+              title="A focused path from discovery to launch."
+            />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {homeMetrics.map(([value, label]) => (
+                <div className="glass-panel rounded-xl p-6" key={label}>
+                  <p className="text-4xl font-black text-slate-950">{value}</p>
+                  <p className="mt-2 text-sm font-semibold text-slate-600">{label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section-y border-y border-white/10 bg-slate-950/45">
+      <section className="section-y border-y border-slate-200/80 bg-slate-50/80">
+        <div className="container">
+          <div className="grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
+            <div>
+              <SectionHeading
+                description="Sixram Band Studio keeps the creative side focused: rehearsal, recording support, session planning, and local music collaboration."
+                eyebrow="Sixram Band Studio"
+                title="A focused studio space alongside the technology work."
+              />
+              <ButtonLink className="mt-6 w-fit" href="/studio" variant="secondary">
+                Explore the studio
+                <ArrowRight aria-hidden="true" size={17} />
+              </ButtonLink>
+            </div>
+            <div className="premium-panel overflow-hidden rounded-2xl p-3">
+              <div className="relative overflow-hidden rounded-xl">
+                <Image
+                  alt="Premium Sixram studio workspace with recording equipment and digital planning screens"
+                  className="h-[24rem] w-full object-cover lg:h-[26rem]"
+                  height={900}
+                  sizes="(min-width: 1024px) 660px, 100vw"
+                  src="/images/sixram-premium-studio.png"
+                  unoptimized
+                  width={1680}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
+                <div className="absolute inset-x-4 bottom-4 grid gap-3 sm:grid-cols-2">
+                  {studioServices.slice(0, 4).map((service) => (
+                    <div
+                      className="flex items-start gap-3 rounded-xl border border-white/15 bg-white/10 p-4 text-white shadow-2xl shadow-slate-950/30 backdrop-blur-xl"
+                      key={service}
+                    >
+                      <CheckCircle2
+                        aria-hidden="true"
+                        className="mt-0.5 shrink-0 text-cyan-200"
+                        size={19}
+                      />
+                      <p className="text-sm font-medium leading-6 text-slate-100">{service}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-y">
         <div className="container">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
-              description="A showcase of business systems, internal tools, operations dashboards, monitoring concepts, CMS plans, and AI-assisted productivity ideas."
-              eyebrow="Featured Projects"
-              title="Projects shaped around practical operations and scalable platforms."
+              description="A rotating view of systems, dashboards, internal tools, and AI-assisted concepts that show the kind of practical work Sixram is built around."
+              eyebrow="Featured Work"
+              title="Recent and active project directions."
             />
             <ButtonLink className="w-fit" href="/projects" variant="secondary">
               View all projects
               <ArrowRight aria-hidden="true" size={17} />
             </ButtonLink>
           </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {projects.map((project) => (
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {projects.slice(0, 3).map((project) => (
               <ProjectCard key={project.name} {...project} />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="section-y border-y border-slate-200/80 bg-slate-50/80">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <SectionHeading
@@ -120,10 +220,10 @@ export default function HomePage() {
                 <div className="glass-panel flex items-start gap-3 rounded-xl p-4" key={item}>
                   <CheckCircle2
                     aria-hidden="true"
-                    className="mt-0.5 shrink-0 text-cyan-100"
+                    className="mt-0.5 shrink-0 text-cyan-700"
                     size={19}
                   />
-                  <p className="text-sm font-medium leading-6 text-slate-200">{item}</p>
+                  <p className="text-sm font-medium leading-6 text-slate-700">{item}</p>
                 </div>
               ))}
             </div>
@@ -132,11 +232,11 @@ export default function HomePage() {
       </section>
 
       <CtaSection
-        description="Reach out for software development, business systems, automation, partnerships, or studio-related inquiries."
+        description="Reach out for software development, business systems, automation, or studio-related inquiries."
         primaryLabel="Start a conversation"
-        secondaryHref="/studio"
-        secondaryLabel="Explore the studio"
-        title="Have a system, venture, or creative project in mind?"
+        secondaryHref="/projects"
+        secondaryLabel="View project work"
+        title="Have a system, workflow, or studio session in mind?"
       />
     </>
   );

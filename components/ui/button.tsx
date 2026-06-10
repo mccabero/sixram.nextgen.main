@@ -4,12 +4,12 @@ import { cn } from "@/lib/utils";
 
 const variants = {
   primary:
-    "border-cyan-300/40 bg-cyan-300 text-slate-950 shadow-glow hover:bg-cyan-200",
+    "border-slate-900 bg-slate-950 text-white shadow-glow hover:border-cyan-800 hover:bg-cyan-800",
   secondary:
-    "border-white/15 bg-white/8 text-white hover:border-cyan-200/40 hover:bg-white/12",
-  ghost: "border-transparent bg-transparent text-slate-200 hover:bg-white/8",
+    "border-slate-200 bg-white text-slate-900 shadow-sm hover:border-cyan-300 hover:bg-cyan-50",
+  ghost: "border-transparent bg-transparent text-slate-700 hover:bg-slate-100",
   gold:
-    "border-amber-200/40 bg-amber-300 text-slate-950 shadow-gold-glow hover:bg-amber-200"
+    "border-amber-600 bg-amber-500 text-white shadow-gold-glow hover:bg-amber-600"
 };
 
 const sizes = {

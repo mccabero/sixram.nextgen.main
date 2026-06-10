@@ -16,7 +16,7 @@ const capabilities = [
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Marxis Cabero, the full-stack developer and technical lead behind Sixram, focused on practical software solutions, automation, business systems, and ventures."
+    "About Marxis Cabero, the full-stack developer and technical lead behind Sixram, focused on practical software solutions, automation, business systems, and studio services."
 };
 
 export default function AboutPage() {
@@ -27,32 +27,32 @@ export default function AboutPage() {
         eyebrow="About Marxis Cabero"
         primaryHref="/contact"
         primaryLabel="Connect with Sixram"
-        secondaryHref="/projects"
-        secondaryLabel="View projects"
-        title="The builder behind Sixram's technology and venture direction."
+        secondaryHref="/technologies#featured-projects"
+        secondaryLabel="View technology projects"
+        title="The builder behind Sixram's technology and studio direction."
       />
 
       <section className="section-y">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <SectionHeading
-              description="Through Sixram, Marxis combines technology, business, and creative ventures into one growing brand. The work is grounded in software that helps businesses operate better, not technology for its own sake."
+              description="Through Sixram, Marxis combines technology, business systems, and creative studio work into one focused brand. The work is grounded in software that helps businesses operate better, not technology for its own sake."
               eyebrow="Positioning"
               title="Full-stack development with a business-building mindset."
             />
             <div className="glass-panel rounded-2xl p-6">
-              <p className="text-lg leading-8 text-slate-200">
+              <p className="text-lg leading-8 text-slate-700">
                 Marxis Cabero is a full-stack developer and technical lead focused on
                 building practical software solutions, business systems, automation tools,
                 and scalable digital platforms. Through Sixram, he combines technology,
-                business, and creative ventures into one growing brand.
+                business systems, and creative studio work into one focused brand.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-y border-y border-white/10 bg-slate-950/45">
+      <section className="section-y border-y border-slate-200/80 bg-slate-50/80">
         <div className="container">
           <SectionHeading
             description="Experience spans modern frontend applications, .NET APIs, relational data systems, cloud deployment, automation, and AI-assisted workflows."
@@ -64,10 +64,10 @@ export default function AboutPage() {
               <div className="glass-panel flex items-start gap-3 rounded-xl p-4" key={capability}>
                 <CheckCircle2
                   aria-hidden="true"
-                  className="mt-0.5 shrink-0 text-cyan-100"
+                  className="mt-0.5 shrink-0 text-cyan-700"
                   size={18}
                 />
-                <p className="text-sm font-medium leading-6 text-slate-200">
+                <p className="text-sm font-medium leading-6 text-slate-700">
                   {capability}
                 </p>
               </div>
@@ -80,17 +80,17 @@ export default function AboutPage() {
         <div className="container">
           <div className="grid gap-4 md:grid-cols-2">
             <div className="glass-panel rounded-xl p-6">
-              <h2 className="text-2xl font-bold text-white">Mission</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-400">
-                Build useful digital systems and connected ventures that help businesses,
+              <h2 className="text-2xl font-bold text-slate-950">Mission</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">
+                Build useful digital systems and creative spaces that help businesses,
                 teams, and local communities operate with more clarity and momentum.
               </p>
             </div>
             <div className="glass-panel rounded-xl p-6">
-              <h2 className="text-2xl font-bold text-white">Vision</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-400">
-                Grow Sixram into a trusted technology and business brand where software,
-                automation, creative services, and local ventures reinforce one another.
+              <h2 className="text-2xl font-bold text-slate-950">Vision</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">
+                Grow Sixram into a trusted technology and studio brand where software,
+                automation, and creative services reinforce one another.
               </p>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function AboutPage() {
       </section>
 
       <CtaSection
-        description="Reach out for software development, automation, partnerships, studio inquiries, or business systems planning."
+        description="Reach out for software development, automation, studio inquiries, or business systems planning."
         primaryLabel="Contact Sixram"
         title="Let's turn practical ideas into working systems."
       />

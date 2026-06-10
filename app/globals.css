@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-  --background: #030712;
-  --foreground: #f8fafc;
+  color-scheme: light;
+  --background: #f8fbff;
+  --foreground: #0f172a;
 }
 
 * {
@@ -21,9 +21,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at 16% 8%, rgba(34, 211, 238, 0.13), transparent 28%),
-    radial-gradient(circle at 86% 0%, rgba(245, 197, 66, 0.08), transparent 24%),
-    linear-gradient(180deg, #030712 0%, #061018 42%, #030712 100%);
+    linear-gradient(180deg, #020617 0%, #0f172a 18%, #f8fbff 46%, #ffffff 100%);
   color: var(--foreground);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -38,10 +36,10 @@ body::before {
   z-index: -2;
   content: "";
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(125, 211, 252, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 78%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 82%);
 }
 
 body::after {
@@ -51,13 +49,13 @@ body::after {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(90deg, rgba(3, 7, 18, 0.9), transparent 18%, transparent 82%, rgba(3, 7, 18, 0.9)),
-    linear-gradient(180deg, transparent 0%, rgba(3, 7, 18, 0.9) 94%);
+    linear-gradient(90deg, rgba(2, 6, 23, 0.76), transparent 18%, transparent 84%, rgba(2, 6, 23, 0.48)),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.18) 0%, transparent 28%, rgba(255, 255, 255, 0.96) 92%);
 }
 
 ::selection {
-  color: #03121b;
-  background: #67e8f9;
+  color: #ffffff;
+  background: #0e7490;
 }
 
 .text-balance {
@@ -65,12 +63,22 @@ body::after {
 }
 
 .glass-panel {
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  border: 1px solid rgba(15, 23, 42, 0.1);
   background:
-    linear-gradient(135deg, rgba(15, 23, 42, 0.86), rgba(8, 17, 28, 0.72)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
-  backdrop-filter: blur(16px);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 252, 255, 0.88)),
+    linear-gradient(180deg, rgba(8, 145, 178, 0.045), transparent);
+  box-shadow:
+    0 22px 60px rgba(15, 23, 42, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+}
+
+.premium-panel {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(120deg, rgba(34, 211, 238, 0.16), transparent 38%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(8, 47, 73, 0.84));
+  box-shadow: 0 32px 80px rgba(2, 6, 23, 0.28);
 }
 
 .section-y {
@@ -95,9 +103,19 @@ body::after {
 
 .hero-bg {
   background-image:
-    linear-gradient(90deg, rgba(3, 7, 18, 0.98) 0%, rgba(3, 7, 18, 0.84) 38%, rgba(3, 7, 18, 0.48) 100%),
-    linear-gradient(180deg, rgba(3, 7, 18, 0.12), #030712 92%),
-    url("/images/sixram-signal-field.png");
+    radial-gradient(circle at 18% 28%, rgba(8, 145, 178, 0.36), transparent 28%),
+    linear-gradient(90deg, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.84) 43%, rgba(2, 6, 23, 0.48) 100%),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.2), rgba(2, 6, 23, 0.8) 94%),
+    url("/images/sixram-premium-ops.png");
   background-position: center;
   background-size: cover;
+}
+
+.hero-bg::after {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: -1;
+  height: 34%;
+  content: "";
+  background: linear-gradient(180deg, transparent, rgba(2, 6, 23, 0.72));
 }

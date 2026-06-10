@@ -3,10 +3,10 @@ import { ButtonLink } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const accentClasses: Record<string, string> = {
-  cyan: "border-cyan-200/25 bg-cyan-200/10 text-cyan-100",
-  violet: "border-violet-200/25 bg-violet-200/10 text-violet-100",
-  gold: "border-amber-200/25 bg-amber-200/10 text-amber-100",
-  mint: "border-emerald-200/25 bg-emerald-200/10 text-emerald-100"
+  cyan: "border-cyan-700/20 bg-cyan-50 text-cyan-800",
+  violet: "border-indigo-700/20 bg-indigo-50 text-indigo-700",
+  gold: "border-amber-700/20 bg-amber-50 text-amber-700",
+  mint: "border-emerald-700/20 bg-emerald-50 text-emerald-700"
 };
 
 export function VentureCard({
@@ -27,7 +27,7 @@ export function VentureCard({
   accent: string;
 }) {
   return (
-    <article className="glass-panel group flex h-full flex-col rounded-xl p-5 transition duration-200 hover:-translate-y-1 hover:border-cyan-200/35 hover:shadow-glow">
+    <article className="glass-panel group flex h-full flex-col rounded-xl p-5 transition duration-200 hover:-translate-y-1 hover:border-cyan-700/25 hover:shadow-glow">
       <div className="flex flex-wrap items-center gap-2">
         <span
           className={cn(
@@ -41,8 +41,8 @@ export function VentureCard({
           {category}
         </span>
       </div>
-      <h3 className="mt-5 text-xl font-bold text-white">{name}</h3>
-      <p className="mt-3 flex-1 text-sm leading-6 text-slate-400">{description}</p>
+      <h3 className="mt-5 text-xl font-bold text-slate-950">{name}</h3>
+      <p className="mt-3 flex-1 text-sm leading-6 text-slate-600">{description}</p>
       <ButtonLink className="mt-6 w-fit" href={href} size="sm" variant="secondary">
         {ctaLabel}
         <ArrowUpRight aria-hidden="true" size={15} />

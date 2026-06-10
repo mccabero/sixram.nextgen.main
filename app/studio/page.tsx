@@ -15,12 +15,12 @@ export default function StudioPage() {
   return (
     <>
       <PageHero
-        description="A creative local music space for band rehearsal, live recording support, and practical session assistance while staying connected to the wider Sixram brand."
+        description="A creative local music space for band rehearsal, live recording support, and practical session assistance."
         eyebrow="Sixram Band Studio"
         primaryHref="/contact"
         primaryLabel="Book or inquire"
-        secondaryHref="/ventures"
-        secondaryLabel="View ventures"
+        secondaryHref="/technologies"
+        secondaryLabel="Explore technologies"
         title="A focused rehearsal and recording space for local musicians."
       />
 
@@ -42,8 +42,8 @@ export default function StudioPage() {
 
                 return (
                   <div className="glass-panel rounded-xl p-5" key={item.label}>
-                    <Icon aria-hidden="true" className="text-violet-100" size={24} />
-                    <h3 className="mt-4 text-lg font-bold text-white">{item.label}</h3>
+                    <Icon aria-hidden="true" className="text-indigo-700" size={24} />
+                    <h3 className="mt-4 text-lg font-bold text-slate-950">{item.label}</h3>
                   </div>
                 );
               })}
@@ -52,7 +52,7 @@ export default function StudioPage() {
         </div>
       </section>
 
-      <section className="section-y border-y border-white/10 bg-slate-950/45">
+      <section className="section-y border-y border-slate-200/80 bg-slate-50/80">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
@@ -64,7 +64,7 @@ export default function StudioPage() {
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {studioServices.map((service) => (
                   <div className="glass-panel rounded-xl p-4" key={service}>
-                    <p className="text-sm font-semibold text-slate-100">{service}</p>
+                    <p className="text-sm font-semibold text-slate-700">{service}</p>
                   </div>
                 ))}
               </div>
@@ -78,7 +78,7 @@ export default function StudioPage() {
               <div className="mt-8 grid gap-3">
                 {studioEquipment.map((item) => (
                   <div className="glass-panel rounded-xl p-4" key={item}>
-                    <p className="text-sm font-semibold text-slate-100">{item}</p>
+                    <p className="text-sm font-semibold text-slate-700">{item}</p>
                   </div>
                 ))}
               </div>
@@ -92,21 +92,21 @@ export default function StudioPage() {
           <div className="grid gap-4 lg:grid-cols-3">
             <div className="glass-panel rounded-xl p-6">
               <CalendarDays aria-hidden="true" className="text-amber-100" size={26} />
-              <h2 className="mt-5 text-2xl font-bold text-white">Promo and rates</h2>
-              <p className="mt-3 text-sm leading-6 text-slate-400">
+              <h2 className="mt-5 text-2xl font-bold text-slate-950">Promo and rates</h2>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
                 Rates, schedules, and promo details can be added once booking rules are
                 finalized.
               </p>
             </div>
             <div className="glass-panel rounded-xl p-6 lg:col-span-2">
-              <h2 className="text-2xl font-bold text-white">Gallery placeholder</h2>
+              <h2 className="text-2xl font-bold text-slate-950">Gallery placeholder</h2>
               <div className="mt-5 grid gap-3 sm:grid-cols-3">
                 {["Studio room", "Live session", "Creative space"].map((item) => (
                   <div
-                    className="flex aspect-[4/3] items-end rounded-xl border border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-violet-950/40 p-4"
+                    className="flex aspect-[4/3] items-end rounded-xl border border-slate-200 bg-gradient-to-br from-white via-sky-50 to-indigo-100 p-4 shadow-sm"
                     key={item}
                   >
-                    <span className="text-sm font-semibold text-slate-200">{item}</span>
+                    <span className="text-sm font-semibold text-slate-700">{item}</span>
                   </div>
                 ))}
               </div>

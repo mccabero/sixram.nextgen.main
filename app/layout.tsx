@@ -7,7 +7,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Sixram Technologies & Ventures",
+    default: "Sixram Technologies & Studio",
     template: "%s | Sixram"
   },
   description: siteConfig.description,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "Vercel"
   ],
   openGraph: {
-    title: "Sixram Technologies & Ventures",
+    title: "Sixram Technologies & Studio",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sixram Technologies & Ventures",
+    title: "Sixram Technologies & Studio",
     description: siteConfig.description
   }
 };

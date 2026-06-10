@@ -28,7 +28,7 @@ export default function TechnologiesPage() {
         eyebrow="Sixram Technologies"
         primaryHref="/contact"
         primaryLabel="Start a software inquiry"
-        secondaryHref="/projects"
+        secondaryHref="#featured-projects"
         secondaryLabel="View projects"
         title="Business-focused software built for operations, growth, and clarity."
       />
@@ -48,7 +48,7 @@ export default function TechnologiesPage() {
         </div>
       </section>
 
-      <section className="section-y border-y border-white/10 bg-slate-950/45">
+      <section className="section-y border-y border-slate-200/80 bg-slate-50/80">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <SectionHeading
@@ -64,10 +64,10 @@ export default function TechnologiesPage() {
                 >
                   <CheckCircle2
                     aria-hidden="true"
-                    className="mt-0.5 shrink-0 text-cyan-100"
+                    className="mt-0.5 shrink-0 text-cyan-700"
                     size={18}
                   />
-                  <p className="text-sm font-medium leading-6 text-slate-200">
+                  <p className="text-sm font-medium leading-6 text-slate-700">
                     {solution}
                   </p>
                 </div>
@@ -93,7 +93,7 @@ export default function TechnologiesPage() {
         </div>
       </section>
 
-      <section className="section-y border-y border-white/10 bg-slate-950/45">
+      <section className="section-y border-y border-slate-200/80 bg-slate-50/80">
         <div className="container">
           <SectionHeading
             description="The process keeps scope clear while leaving room to improve the system after real users start using it."
@@ -107,13 +107,13 @@ export default function TechnologiesPage() {
               return (
                 <article className="glass-panel rounded-xl p-4" key={step.title}>
                   <div className="flex items-center justify-between gap-3">
-                    <Icon aria-hidden="true" className="text-cyan-100" size={19} />
+                    <Icon aria-hidden="true" className="text-cyan-700" size={19} />
                     <span className="text-xs font-bold text-slate-500">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <h3 className="mt-4 text-base font-bold text-white">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">
+                  <h3 className="mt-4 text-base font-bold text-slate-950">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
                     {step.description}
                   </p>
                 </article>
@@ -123,7 +123,7 @@ export default function TechnologiesPage() {
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="section-y" id="featured-projects">
         <div className="container">
           <SectionHeading
             description="Current and planned products show the type of practical business platforms Sixram is built to deliver."
