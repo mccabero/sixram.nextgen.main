@@ -12,12 +12,12 @@ export function ProjectCard({
   status: string;
 }) {
   return (
-    <article className="glass-panel group flex h-full flex-col rounded-xl p-5 transition duration-200 hover:-translate-y-1 hover:border-cyan-700/25 hover:shadow-glow">
+    <article className="glass-panel interactive-card group flex h-full flex-col p-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <span className="text-xs font-semibold uppercase text-cyan-800">
           {category}
         </span>
-        <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
+        <span className="border border-slate-200 bg-white/80 px-3 py-1 text-xs font-black uppercase tracking-[0.04em] text-slate-600">
           {status}
         </span>
       </div>
@@ -26,7 +26,7 @@ export function ProjectCard({
       <div className="mt-6 flex flex-wrap gap-2">
         {tech.map((item) => (
           <span
-            className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600"
+            className="border border-slate-200 bg-white/80 px-3 py-1 text-xs font-bold text-slate-600"
             key={item}
           >
             {item}

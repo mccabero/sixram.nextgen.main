@@ -17,37 +17,38 @@ export function CtaSection({
   secondaryHref?: string;
 }) {
   return (
-    <section className="section-y">
+    <section className="statement-band">
       <div className="container">
-        <div className="premium-panel relative overflow-hidden rounded-2xl p-8 sm:p-10 lg:p-12">
-          <div className="relative z-10 grid gap-8 lg:grid-cols-[1.4fr_auto] lg:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase text-amber-200">
-                Ready when you are
-              </p>
-              <h2 className="mt-4 max-w-3xl text-balance text-3xl font-bold text-white sm:text-4xl">
-                {title}
-              </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
-                {description}
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <ButtonLink href={primaryHref} size="lg" variant="gold">
-                {primaryLabel}
-                <ArrowRight aria-hidden="true" size={18} />
+        <div className="grid gap-8 py-16 lg:grid-cols-[1.4fr_auto] lg:items-center lg:py-20">
+          <div>
+            <p className="editorial-kicker">Ready when you are</p>
+            <h2 className="mt-4 max-w-4xl text-balance text-4xl font-light leading-tight text-slate-950 sm:text-5xl">
+              {title}
+            </h2>
+            <p className="mt-5 max-w-2xl text-base font-medium leading-7 text-slate-950/80">
+              {description}
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+            <ButtonLink
+              className="border-slate-950 bg-slate-950 text-white hover:border-white hover:bg-white hover:text-slate-950"
+              href={primaryHref}
+              size="lg"
+              variant="primary"
+            >
+              {primaryLabel}
+              <ArrowRight aria-hidden="true" size={18} />
+            </ButtonLink>
+            {secondaryHref && secondaryLabel ? (
+              <ButtonLink
+                className="border-slate-950 bg-transparent text-slate-950 hover:bg-slate-950 hover:text-white"
+                href={secondaryHref}
+                size="lg"
+                variant="secondary"
+              >
+                {secondaryLabel}
               </ButtonLink>
-              {secondaryHref && secondaryLabel ? (
-                <ButtonLink
-                  className="border-white/15 bg-white/10 text-white shadow-none hover:bg-white/15"
-                  href={secondaryHref}
-                  size="lg"
-                  variant="secondary"
-                >
-                  {secondaryLabel}
-                </ButtonLink>
-              ) : null}
-            </div>
+            ) : null}
           </div>
         </div>
       </div>

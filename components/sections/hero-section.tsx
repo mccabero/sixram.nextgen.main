@@ -1,7 +1,6 @@
 import { ArrowRight, Layers3, RadioTower, Sparkles } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Reveal } from "@/components/ui/reveal";
 
 const capabilitySignals = [
   { label: "Software systems", icon: Layers3 },
@@ -11,31 +10,33 @@ const capabilitySignals = [
 
 export function HeroSection() {
   return (
-    <section className="hero-bg relative isolate min-h-[92svh] overflow-hidden border-b border-white/10 pt-28">
-      <div className="absolute inset-0 -z-10 bg-grid-lines bg-[length:58px_58px] opacity-15" />
-      <div className="container flex min-h-[calc(92svh-7rem)] flex-col justify-center pb-14">
-        <Reveal className="w-full min-w-0 max-w-4xl">
-          <Badge className="border-cyan-300/25 bg-slate-950/45 text-cyan-100 shadow-none backdrop-blur">
-            Technology &bull; Automation &bull; Studio
+    <section className="hero-bg relative isolate min-h-[920px] overflow-hidden border-b border-white/10 pt-32 text-white">
+      <div className="absolute inset-0 -z-10 bg-grid-lines bg-[length:72px_72px] opacity-10" />
+      <div className="container flex min-h-[calc(920px-8rem)] flex-col justify-center pb-14">
+        <div className="hero-enter editorial-hero-copy w-full min-w-0">
+          <Badge className="border-cyan-300/30 bg-black/45 text-cyan-100 shadow-none backdrop-blur">
+            Marxis Cabero &bull; Sixram
           </Badge>
-          <h1 className="mt-7 max-w-[12ch] text-balance text-4xl font-black leading-[0.98] tracking-normal text-white sm:max-w-none sm:text-6xl lg:text-7xl">
-            Sixram Technologies & Studio
+          <h1 className="editorial-display mt-8 text-white">
+            I Build
+            <span className="block editorial-accent">Useful</span>
+            Systems.
           </h1>
-          <p className="mt-5 max-w-[22rem] text-balance text-xl font-semibold leading-snug text-cyan-100 sm:max-w-3xl sm:text-3xl">
-            Building practical software systems and a focused creative studio.
+          <p className="mt-8 max-w-2xl text-base font-semibold leading-7 text-slate-100 sm:text-lg">
+            Sixram is the personal home for my software development, automation,
+            digital platforms, and focused band studio work.
           </p>
-          <p className="mt-5 max-w-[22rem] break-words text-base leading-7 text-slate-200 sm:max-w-3xl sm:text-lg sm:leading-8">
-            Sixram is the personal and business brand of Marxis Cabero, focused on
-            custom software development, automation, digital platforms, music studio
-            services, and practical business systems.
+          <p className="mt-5 max-w-2xl text-sm font-bold leading-6 text-cyan-100 sm:text-base">
+            Practical systems first. Clean execution. Creative work that still has a
+            real operating model behind it.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/technologies" size="lg" variant="gold">
-              Explore Services
+              View the work
               <ArrowRight aria-hidden="true" size={18} />
             </ButtonLink>
             <ButtonLink
-              className="border-white/20 bg-white/10 text-white shadow-none backdrop-blur hover:border-cyan-200/40 hover:bg-white/15"
+              className="border-white/25 bg-transparent text-white shadow-none backdrop-blur hover:border-white hover:bg-white hover:text-slate-950"
               href="/studio"
               size="lg"
               variant="secondary"
@@ -51,18 +52,15 @@ export function HeroSection() {
               Contact
             </ButtonLink>
           </div>
-        </Reveal>
+        </div>
 
-        <Reveal
-          className="mt-12 grid w-full min-w-0 gap-3 sm:grid-cols-3 lg:max-w-3xl"
-          delay={0.12}
-        >
+        <div className="hero-enter hero-enter-delay mt-12 grid w-full min-w-0 gap-3 sm:grid-cols-3 lg:max-w-3xl">
           {capabilitySignals.map((item) => {
             const Icon = item.icon;
 
             return (
               <div
-                className="flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white shadow-2xl shadow-slate-950/20 backdrop-blur-xl"
+                className="interactive-card flex items-center gap-3 border border-white/15 bg-white/[0.06] px-4 py-3 text-white shadow-2xl shadow-slate-950/20 backdrop-blur-xl"
                 key={item.label}
               >
                 <Icon aria-hidden="true" className="text-cyan-200" size={18} />
@@ -70,7 +68,7 @@ export function HeroSection() {
               </div>
             );
           })}
-        </Reveal>
+        </div>
       </div>
     </section>
   );

@@ -4,8 +4,13 @@
 
 :root {
   color-scheme: light;
-  --background: #f8fbff;
+  --background: #05070d;
   --foreground: #0f172a;
+  --muted: #64748b;
+  --surface: rgba(255, 255, 255, 0.9);
+  --sixram-blue: #38bdf8;
+  --sixram-blue-strong: #0ea5e9;
+  --sixram-ink: #05070d;
 }
 
 * {
@@ -21,12 +26,13 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    linear-gradient(180deg, #020617 0%, #0f172a 18%, #f8fbff 46%, #ffffff 100%);
+    linear-gradient(180deg, #03050a 0%, #05070d 34rem, #f5f8fb 34.1rem, #ffffff 100%);
   color: var(--foreground);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
@@ -36,10 +42,11 @@ body::before {
   z-index: -2;
   content: "";
   background-image:
-    linear-gradient(rgba(125, 211, 252, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 211, 252, 0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 82%);
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+  background-position: center top;
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.76), transparent 76%);
 }
 
 body::after {
@@ -49,8 +56,8 @@ body::after {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(90deg, rgba(2, 6, 23, 0.76), transparent 18%, transparent 84%, rgba(2, 6, 23, 0.48)),
-    linear-gradient(180deg, rgba(2, 6, 23, 0.18) 0%, transparent 28%, rgba(255, 255, 255, 0.96) 92%);
+    linear-gradient(112deg, rgba(14, 165, 233, 0.1), transparent 26%, transparent 72%, rgba(30, 64, 175, 0.08)),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.44) 0%, transparent 28%, rgba(255, 255, 255, 0.96) 92%);
 }
 
 ::selection {
@@ -63,27 +70,81 @@ body::after {
 }
 
 .glass-panel {
-  border: 1px solid rgba(15, 23, 42, 0.1);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.12);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 252, 255, 0.88)),
-    linear-gradient(180deg, rgba(8, 145, 178, 0.045), transparent);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(243, 248, 252, 0.9)),
+    linear-gradient(180deg, rgba(14, 165, 233, 0.055), transparent);
   box-shadow:
-    0 22px 60px rgba(15, 23, 42, 0.09),
+    0 24px 70px rgba(15, 23, 42, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(18px);
 }
 
+.glass-panel::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.48), transparent 34%),
+    linear-gradient(180deg, rgba(14, 165, 233, 0.06), transparent 58%);
+}
+
 .premium-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background:
-    linear-gradient(120deg, rgba(34, 211, 238, 0.16), transparent 38%),
-    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(8, 47, 73, 0.84));
-  box-shadow: 0 32px 80px rgba(2, 6, 23, 0.28);
+    linear-gradient(120deg, rgba(34, 211, 238, 0.17), transparent 36%),
+    linear-gradient(145deg, rgba(2, 6, 23, 0.98), rgba(13, 42, 67, 0.95) 48%, rgba(20, 15, 54, 0.92));
+  box-shadow: 0 34px 90px rgba(2, 6, 23, 0.32);
+}
+
+.premium-panel::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent 22%, transparent 78%, rgba(255, 255, 255, 0.06)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px 96px);
+  opacity: 0.72;
+}
+
+.interactive-card {
+  transform: translateZ(0);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(14, 165, 233, 0.3);
+  box-shadow:
+    0 24px 62px rgba(15, 23, 42, 0.14),
+    0 0 0 1px rgba(14, 165, 233, 0.06);
+}
+
+.surface-band {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  background:
+    linear-gradient(180deg, rgba(246, 250, 253, 0.96), rgba(255, 255, 255, 0.96)),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.075), transparent 34%, rgba(15, 23, 42, 0.035));
 }
 
 .section-y {
-  padding-top: clamp(4rem, 8vw, 7rem);
-  padding-bottom: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(4.5rem, 8vw, 7.5rem);
+  padding-bottom: clamp(4.5rem, 8vw, 7.5rem);
 }
 
 .container {
@@ -102,13 +163,27 @@ body::after {
 }
 
 .hero-bg {
+  background-color: #020617;
   background-image:
-    radial-gradient(circle at 18% 28%, rgba(8, 145, 178, 0.36), transparent 28%),
-    linear-gradient(90deg, rgba(2, 6, 23, 0.96) 0%, rgba(2, 6, 23, 0.84) 43%, rgba(2, 6, 23, 0.48) 100%),
-    linear-gradient(180deg, rgba(2, 6, 23, 0.2), rgba(2, 6, 23, 0.8) 94%),
-    url("/images/sixram-premium-ops.png");
+    linear-gradient(90deg, rgba(3, 5, 10, 0.98) 0%, rgba(3, 5, 10, 0.88) 42%, rgba(3, 5, 10, 0.34) 100%),
+    linear-gradient(180deg, rgba(3, 5, 10, 0.12), rgba(3, 5, 10, 0.94) 96%),
+    url("/images/sixram-technologies-hero.jpg");
   background-position: center;
   background-size: cover;
+}
+
+.hero-bg::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(115deg, transparent 0 42%, rgba(34, 211, 238, 0.11) 48%, transparent 56%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 80px);
+  background-position: 0 0, center;
+  opacity: 0.66;
+  animation: hero-sweep 14s ease-in-out infinite alternate;
 }
 
 .hero-bg::after {
@@ -118,4 +193,287 @@ body::after {
   height: 34%;
   content: "";
   background: linear-gradient(180deg, transparent, rgba(2, 6, 23, 0.72));
+}
+
+.page-hero-bg {
+  background-color: #020617;
+  background-image:
+    linear-gradient(90deg, rgba(3, 5, 10, 0.98), rgba(3, 5, 10, 0.86) 54%, rgba(3, 5, 10, 0.54)),
+    linear-gradient(180deg, rgba(3, 5, 10, 0.08), rgba(3, 5, 10, 0.9)),
+    url("/images/sixram-signal-field.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.technologies-hero-bg {
+  background-color: #020617;
+  background-image:
+    linear-gradient(90deg, rgba(2, 6, 23, 0.99) 0%, rgba(2, 6, 23, 0.94) 42%, rgba(2, 6, 23, 0.46) 72%, rgba(2, 6, 23, 0.2) 100%),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.18) 0%, rgba(2, 6, 23, 0.52) 68%, rgba(2, 6, 23, 0.96) 100%),
+    url("/images/sixram-technologies-hero.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.studio-hero-bg {
+  background-color: #020617;
+  background-image:
+    linear-gradient(90deg, rgba(2, 6, 23, 0.97) 0%, rgba(2, 6, 23, 0.8) 38%, rgba(2, 6, 23, 0.34) 68%, rgba(2, 6, 23, 0.62) 100%),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.12) 0%, rgba(2, 6, 23, 0.3) 54%, rgba(2, 6, 23, 0.94) 100%),
+    url("/images/studio/sixram-studio-guitars-hero.jpg"),
+    url("/images/sixram-premium-studio.png");
+  background-position:
+    center,
+    center,
+    center 42%,
+    center;
+  background-size: cover;
+}
+
+.studio-hero-bg::after {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: -1;
+  height: 30%;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, transparent, rgba(2, 6, 23, 0.95));
+}
+
+.studio-hero-title {
+  letter-spacing: 0;
+  text-shadow:
+    0 3px 0 rgba(8, 145, 178, 0.32),
+    0 18px 44px rgba(0, 0, 0, 0.58);
+}
+
+.studio-hero-copy {
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+}
+
+.technologies-hero-bg::after {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: -1;
+  height: 26%;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, transparent, rgba(2, 6, 23, 0.92));
+}
+
+.technologies-page {
+  background:
+    linear-gradient(180deg, rgba(238, 248, 255, 0.8), rgba(255, 255, 255, 0.96) 32rem),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.05), transparent 38%, rgba(59, 130, 246, 0.05));
+}
+
+.technologies-page .surface-band {
+  background:
+    linear-gradient(180deg, rgba(239, 248, 255, 0.9), rgba(247, 251, 255, 0.92)),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.08), transparent 44%, rgba(56, 189, 248, 0.055));
+}
+
+.technologies-page .glass-panel {
+  border-color: rgba(14, 116, 144, 0.16);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(240, 249, 255, 0.88)),
+    linear-gradient(180deg, rgba(14, 165, 233, 0.08), transparent);
+  box-shadow:
+    0 24px 72px rgba(8, 47, 73, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.technologies-page .glass-panel::before {
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.54), transparent 34%),
+    linear-gradient(180deg, rgba(56, 189, 248, 0.08), transparent 58%);
+}
+
+.editorial-shell {
+  background: #f7f9fb;
+}
+
+.editorial-hero-copy {
+  max-width: 50rem;
+}
+
+.editorial-display {
+  font-size: clamp(4.4rem, 12vw, 10.5rem);
+  font-weight: 400;
+  line-height: 0.86;
+  letter-spacing: 0;
+}
+
+.editorial-accent {
+  color: var(--sixram-blue);
+}
+
+.editorial-kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.statement-band {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(2, 6, 23, 0.16);
+  border-bottom: 1px solid rgba(2, 6, 23, 0.16);
+  background: var(--sixram-blue);
+  color: #020617;
+}
+
+.statement-band::before,
+.statement-band::after {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  content: "";
+  border-color: #020617;
+  opacity: 0.72;
+}
+
+.statement-band::before {
+  top: 4.5rem;
+  left: 2rem;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.statement-band::after {
+  right: 2rem;
+  bottom: 4.5rem;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.numbered-title-band {
+  border-top: 1px solid rgba(2, 6, 23, 0.1);
+  border-bottom: 1px solid rgba(2, 6, 23, 0.1);
+  background: #f4f6f8;
+}
+
+.numbered-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.numbered-title h2 {
+  font-size: clamp(3.6rem, 9vw, 7.5rem);
+  font-weight: 300;
+  line-height: 0.94;
+  letter-spacing: 0;
+}
+
+.numbered-title span {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.dark-feature {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(3, 5, 10, 0.98), rgba(3, 5, 10, 0.88)),
+    radial-gradient(circle at 82% 42%, rgba(56, 189, 248, 0.2), transparent 34%),
+    #05070d;
+  color: #ffffff;
+}
+
+.dark-feature::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(90deg, transparent, black 22%, black 72%, transparent);
+  opacity: 0.42;
+}
+
+.dark-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(18px);
+}
+
+.blue-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.72), transparent);
+}
+
+@keyframes hero-sweep {
+  from {
+    background-position: -18rem 0, center;
+  }
+  to {
+    background-position: 16rem 0, center;
+  }
+}
+
+.hero-enter {
+  animation: content-rise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-enter-delay {
+  animation-delay: 120ms;
+}
+
+@keyframes content-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .studio-hero-bg {
+    background-image:
+      linear-gradient(90deg, rgba(2, 6, 23, 0.98) 0%, rgba(2, 6, 23, 0.9) 54%, rgba(2, 6, 23, 0.66) 100%),
+      linear-gradient(180deg, rgba(2, 6, 23, 0.18) 0%, rgba(2, 6, 23, 0.56) 70%, rgba(2, 6, 23, 0.96) 100%),
+      url("/images/studio/sixram-studio-guitars-hero.jpg"),
+      url("/images/sixram-premium-studio.png");
+    background-position:
+      center,
+      center,
+      54% center,
+      center;
+  }
+
+  .technologies-hero-bg {
+    background-image:
+      linear-gradient(90deg, rgba(2, 6, 23, 0.98) 0%, rgba(2, 6, 23, 0.92) 58%, rgba(2, 6, 23, 0.64) 100%),
+      linear-gradient(180deg, rgba(2, 6, 23, 0.22) 0%, rgba(2, 6, 23, 0.64) 72%, rgba(2, 6, 23, 0.96) 100%),
+      url("/images/sixram-technologies-hero.jpg");
+    background-position: 64% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .interactive-card:hover {
+    transform: none;
+  }
 }

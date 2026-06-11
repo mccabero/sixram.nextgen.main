@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/contact-form";
 import { CtaSection } from "@/components/sections/cta-section";
+import { NumberedTitle } from "@/components/sections/numbered-title";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 
@@ -19,13 +20,14 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
+    <main className="editorial-shell">
       <PageHero
         description="Send an inquiry for software development, automation, business systems, studio bookings, or general Sixram conversations."
         eyebrow="Contact Sixram"
         title="Start the conversation with the right context."
       />
 
+      <NumberedTitle label="Inquiry" number="01" />
       <section className="section-y">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
@@ -37,8 +39,8 @@ export default function ContactPage() {
               />
               <div className="mt-8 grid gap-3">
                 {inquiryTypes.map((type) => (
-                  <div className="glass-panel rounded-xl p-4" key={type}>
-                    <p className="text-sm font-semibold text-slate-700">{type}</p>
+                  <div className="glass-panel interactive-card p-4" key={type}>
+                    <p className="text-sm font-black text-slate-700">{type}</p>
                   </div>
                 ))}
               </div>
@@ -56,6 +58,6 @@ export default function ContactPage() {
         secondaryLabel="Explore the studio"
         title="Sixram is ready for software and studio inquiries."
       />
-    </>
+    </main>
   );
 }

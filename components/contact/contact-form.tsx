@@ -44,12 +44,12 @@ export function ContactForm() {
   }
 
   return (
-    <form className="glass-panel rounded-2xl p-5 sm:p-6" onSubmit={submitForm}>
+    <form className="glass-panel p-5 sm:p-6" onSubmit={submitForm}>
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-medium text-slate-800">
           Name
           <input
-            className="rounded-lg border-slate-200 bg-white text-slate-950 placeholder:text-slate-400 focus:border-cyan-600 focus:ring-cyan-600"
+            className="border-slate-200 bg-white/85 text-slate-950 shadow-sm shadow-slate-950/5 placeholder:text-slate-400 transition focus:border-cyan-600 focus:bg-white focus:ring-cyan-600"
             onChange={(event) =>
               setForm((current) => ({ ...current, name: event.target.value }))
             }
@@ -62,7 +62,7 @@ export function ContactForm() {
         <label className="grid gap-2 text-sm font-medium text-slate-800">
           Email
           <input
-            className="rounded-lg border-slate-200 bg-white text-slate-950 placeholder:text-slate-400 focus:border-cyan-600 focus:ring-cyan-600"
+            className="border-slate-200 bg-white/85 text-slate-950 shadow-sm shadow-slate-950/5 placeholder:text-slate-400 transition focus:border-cyan-600 focus:bg-white focus:ring-cyan-600"
             onChange={(event) =>
               setForm((current) => ({ ...current, email: event.target.value }))
             }
@@ -77,7 +77,7 @@ export function ContactForm() {
       <label className="mt-5 grid gap-2 text-sm font-medium text-slate-800">
         Inquiry type
         <select
-          className="rounded-lg border-slate-200 bg-white text-slate-950 focus:border-cyan-600 focus:ring-cyan-600"
+          className="border-slate-200 bg-white/85 text-slate-950 shadow-sm shadow-slate-950/5 transition focus:border-cyan-600 focus:bg-white focus:ring-cyan-600"
           onChange={(event) =>
             setForm((current) => ({ ...current, inquiryType: event.target.value }))
           }
@@ -92,7 +92,7 @@ export function ContactForm() {
       <label className="mt-5 grid gap-2 text-sm font-medium text-slate-800">
         Message
         <textarea
-          className="min-h-36 rounded-lg border-slate-200 bg-white text-slate-950 placeholder:text-slate-400 focus:border-cyan-600 focus:ring-cyan-600"
+          className="min-h-36 border-slate-200 bg-white/85 text-slate-950 shadow-sm shadow-slate-950/5 placeholder:text-slate-400 transition focus:border-cyan-600 focus:bg-white focus:ring-cyan-600"
           onChange={(event) =>
             setForm((current) => ({ ...current, message: event.target.value }))
           }
@@ -113,7 +113,7 @@ export function ContactForm() {
       </div>
 
       {submitted ? (
-        <p className="mt-5 rounded-lg border border-emerald-700/20 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
+        <p className="mt-5 border border-emerald-700/20 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800 shadow-sm shadow-emerald-950/5">
           Thanks. Your inquiry is ready for the next contact integration step.
         </p>
       ) : null}

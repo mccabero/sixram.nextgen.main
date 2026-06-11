@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { CalendarDays, Music2, Radio, Settings2 } from "lucide-react";
+import { CalendarDays } from "lucide-react";
+import Image from "next/image";
 import { CtaSection } from "@/components/sections/cta-section";
+import { NumberedTitle } from "@/components/sections/numbered-title";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
+import { StudioGalleryCarousel } from "@/components/studio/studio-gallery-carousel";
 import { studioEquipment, studioServices } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -13,46 +16,22 @@ export const metadata: Metadata = {
 
 export default function StudioPage() {
   return (
-    <>
+    <main className="editorial-shell">
       <PageHero
-        description="A creative local music space for band rehearsal, live recording support, and practical session assistance."
-        eyebrow="Sixram Band Studio"
+        description="A no-fuss band room for rehearsals, live recording support, and session prep with real stage energy."
         primaryHref="/contact"
-        primaryLabel="Book or inquire"
+        primaryLabel="Book the room"
         secondaryHref="/technologies"
-        secondaryLabel="Explore technologies"
-        title="A focused rehearsal and recording space for local musicians."
+        secondaryLabel="Explore Sixram Tech"
+        title="Rehearse loud. Record live. Play tighter."
+        variant="studio"
       />
 
-      <section className="section-y">
-        <div className="container">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <SectionHeading
-              description="The studio supports bands, performers, and creative teams who need a dependable room for rehearsal, practice, recording support, and local collaboration."
-              eyebrow="About the Studio"
-              title="Creative energy with the same premium Sixram foundation."
-            />
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                { label: "Rehearsal", icon: Music2 },
-                { label: "Live recording", icon: Radio },
-                { label: "Session support", icon: Settings2 }
-              ].map((item) => {
-                const Icon = item.icon;
+      <NumberedTitle label="Gallery" number="01" />
+      <StudioGalleryCarousel />
 
-                return (
-                  <div className="glass-panel rounded-xl p-5" key={item.label}>
-                    <Icon aria-hidden="true" className="text-indigo-700" size={24} />
-                    <h3 className="mt-4 text-lg font-bold text-slate-950">{item.label}</h3>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-y border-y border-slate-200/80 bg-slate-50/80">
+      <NumberedTitle label="Services" number="02" />
+      <section className="section-y surface-band">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
@@ -63,7 +42,7 @@ export default function StudioPage() {
               />
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {studioServices.map((service) => (
-                  <div className="glass-panel rounded-xl p-4" key={service}>
+                  <div className="glass-panel interactive-card p-4" key={service}>
                     <p className="text-sm font-semibold text-slate-700">{service}</p>
                   </div>
                 ))}
@@ -77,7 +56,7 @@ export default function StudioPage() {
               />
               <div className="mt-8 grid gap-3">
                 {studioEquipment.map((item) => (
-                  <div className="glass-panel rounded-xl p-4" key={item}>
+                  <div className="glass-panel interactive-card p-4" key={item}>
                     <p className="text-sm font-semibold text-slate-700">{item}</p>
                   </div>
                 ))}
@@ -87,27 +66,40 @@ export default function StudioPage() {
         </div>
       </section>
 
+      <NumberedTitle label="Environment" number="03" />
       <section className="section-y">
         <div className="container">
           <div className="grid gap-4 lg:grid-cols-3">
-            <div className="glass-panel rounded-xl p-6">
-              <CalendarDays aria-hidden="true" className="text-amber-100" size={26} />
+            <div className="glass-panel interactive-card p-6">
+              <CalendarDays aria-hidden="true" className="text-amber-600" size={26} />
               <h2 className="mt-5 text-2xl font-bold text-slate-950">Promo and rates</h2>
               <p className="mt-3 text-sm leading-6 text-slate-600">
                 Rates, schedules, and promo details can be added once booking rules are
                 finalized.
               </p>
             </div>
-            <div className="glass-panel rounded-xl p-6 lg:col-span-2">
-              <h2 className="text-2xl font-bold text-slate-950">Gallery placeholder</h2>
+            <div className="lg:col-span-2">
+              <h2 className="text-2xl font-black text-slate-950">Studio environment</h2>
               <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                {["Studio room", "Live session", "Creative space"].map((item) => (
-                  <div
-                    className="flex aspect-[4/3] items-end rounded-xl border border-slate-200 bg-gradient-to-br from-white via-sky-50 to-indigo-100 p-4 shadow-sm"
+                {["Studio room", "Live session", "Creative space"].map((item, index) => (
+                  <figure
+                    className="relative aspect-[4/3] overflow-hidden border border-slate-200 shadow-sm shadow-slate-950/10"
                     key={item}
                   >
-                    <span className="text-sm font-semibold text-slate-700">{item}</span>
-                  </div>
+                    <Image
+                      alt={`${item} at Sixram Band Studio`}
+                      className="h-full w-full object-cover"
+                      height={420}
+                      sizes="(min-width: 1024px) 260px, (min-width: 640px) 33vw, 100vw"
+                      src="/images/sixram-premium-studio.png"
+                      style={{ objectPosition: `${34 + index * 18}% center` }}
+                      unoptimized
+                      width={560}
+                    />
+                    <figcaption className="absolute inset-x-3 bottom-3 border border-white/15 bg-slate-950/72 px-3 py-2 text-sm font-semibold text-white backdrop-blur">
+                      {item}
+                    </figcaption>
+                  </figure>
                 ))}
               </div>
             </div>
@@ -120,6 +112,6 @@ export default function StudioPage() {
         primaryLabel="Send studio inquiry"
         title="Planning a rehearsal or recording session?"
       />
-    </>
+    </main>
   );
 }

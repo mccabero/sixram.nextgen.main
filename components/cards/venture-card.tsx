@@ -27,11 +27,11 @@ export function VentureCard({
   accent: string;
 }) {
   return (
-    <article className="glass-panel group flex h-full flex-col rounded-xl p-5 transition duration-200 hover:-translate-y-1 hover:border-cyan-700/25 hover:shadow-glow">
+    <article className="glass-panel interactive-card group flex h-full flex-col p-5">
       <div className="flex flex-wrap items-center gap-2">
         <span
           className={cn(
-            "rounded-full border px-3 py-1 text-xs font-semibold",
+            "border px-3 py-1 text-xs font-black uppercase tracking-[0.04em]",
             accentClasses[accent] ?? accentClasses.cyan
           )}
         >
